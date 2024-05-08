@@ -24,6 +24,19 @@ const url = 'https://634ac3fc5df952851418480f.mockapi.io/api/todos'
           console.log(error);
         }
       };
+      //const addTodo = async (text:string)
+      type AddFn = (text: string) => Promise<void>;
+
+      const addTodo: AddFn = async (text) => {
+        try {
+          const {data} = await axios.post<ITodoType>(url, { task: text, isDone: false });
+            getTodos()
+          setTodos([...todos, data]);
+        } catch (error) {
+          console.log(error);
+         
+        }
+      };
 
       useEffect(() => {
         getTodos();
@@ -34,7 +47,7 @@ const url = 'https://634ac3fc5df952851418480f.mockapi.io/api/todos'
         <Typography align="center" color="error" variant="h5" component="h1">
             ToDo App with TypeScript
         </Typography>
-        <AddTodoComp/>
+        <AddTodoComp addTodo={addTodo} />
         <TodoList />
         </Container>
   )
