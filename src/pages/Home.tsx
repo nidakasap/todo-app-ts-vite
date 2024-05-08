@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 import axios from "axios";
 
 
-const url = 'https://634ac3fc5df952851418480f.mockapi.io/api/todos'
+const url: string = import.meta.env.VITE_BASE_URL
 
   const Home = () => {
     const [todos,setTodos] = useState<ITodoType[]>([]);

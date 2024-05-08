@@ -23,6 +23,8 @@ const TodoList: FC<ITodoList> = ({ todos,toggleTodo,deleteTodo }) => {
         xs={12}
         sm={8}
         md={5}
+        position={"relative"}
+        className="myscrool scrool-progress"
         sx={{
           border: "1px solid purple",
           borderRadius: "0.5rem",
@@ -31,12 +33,12 @@ const TodoList: FC<ITodoList> = ({ todos,toggleTodo,deleteTodo }) => {
           overflow: "auto",
         }}
       >
-        <Typography color="secondary" align="center" variant="h4">
+        <Typography className="title" color="secondary" align="center" variant="h4">
           InProgress Todos
         </Typography>
         {progressTodos.length ? (
           progressTodos.map((todo) => (
-            <TodoListItem key={todo.id} todo={todo} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
+            <TodoListItem toggleTodo={toggleTodo} deleteTodo={deleteTodo} key={todo.id} todo={todo} />
           ))
         ) : (
           <Typography color="error" mt={3}>
@@ -49,6 +51,8 @@ const TodoList: FC<ITodoList> = ({ todos,toggleTodo,deleteTodo }) => {
         xs={12}
         sm={8}
         md={5}
+        position={"relative"}
+        className="myscrool scrool-completed"
         sx={{
           border: "1px solid green",
           borderRadius: "0.5rem",
@@ -57,12 +61,12 @@ const TodoList: FC<ITodoList> = ({ todos,toggleTodo,deleteTodo }) => {
           overflow: "auto",
         }}
       >
-        <Typography sx={{color:"green"}} align="center" variant="h4">
+        <Typography className="title" sx={{color:"green"}} align="center" variant="h4">
           Completed Todos
         </Typography>
         {completedTodos.length ? (
           completedTodos.map((todo) => (
-            <TodoListItem key={todo.id} todo={todo} toggleTodo={toggleTodo} deleteTodo={deleteTodo}/>
+            <TodoListItem toggleTodo={toggleTodo} deleteTodo={deleteTodo} key={todo.id} todo={todo} />
           ))
         ) : (
           <Typography color="error" mt={3}>

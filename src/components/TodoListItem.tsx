@@ -12,7 +12,7 @@ interface ITodoListItem extends ITodoListFn {
     toggleTodo,
   }) => {
     return (
-      <ListItem
+        <ListItem
         disableGutters
         sx={{ padding: "1rem", cursor: "pointer" }}
         secondaryAction={

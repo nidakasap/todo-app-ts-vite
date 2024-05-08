@@ -15,34 +15,34 @@ interface IAddTodoComp {
 
   return (
     <Box
-        sx={{
-          display: { xs: "block", sm: "flex" },
-          justifyContent: { xs: "flex-start", sm: "center" },
-          m: { xs: 1, sm: "auto" },
-          height: { xs: "120px", sm: "80px" },
-        }}
+      sx={{
+        display: { xs: "block", sm: "flex" },
+        justifyContent: { xs: "flex-start", sm: "center" },
+        m: { xs: 1, sm: "auto" },
+        height: { xs: "120px", sm: "80px" },
+      }}
+    >
+      <TextField
+        id="outlined-basic"
+        label="New Todo"
+        color="success"
+        sx={{ minWidth: { xs: "100%", sm: "50%" }, height: "50px", m: 1 }}
+        variant="outlined"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        inputProps={{ maxLength: 40 }}
+      />
+      <Button
+        variant="contained"
+        color="success"
+        sx={{ minWidth: { xs: "100%", sm: "15%" }, height: "55px", m: 1 }}
+        endIcon={<SaveIcon />}
+        disabled={!text.trim()}
+        onClick={handleClick}
       >
-        <TextField
-          id="outlined-basic"
-          label="New Todo"
-          color="success"
-          sx={{ minWidth: { xs: "100%", sm: "50%" }, height: "50px", m: 1 }}
-          variant="outlined"
-          inputProps={{maxLength:40}}
-          onChange={(e)=> setText(e.target.value)}
-          value={text}
-        />
-        <Button
-            onClick={handleClick}
-          variant="contained"
-          color="success"
-          disabled={!text.trim()}
-          sx={{ minWidth: { xs: "100%", sm: "15%" }, height: "55px", m: 1 }}
-          endIcon={<SaveIcon />}
-        >
-          Save Todo
-        </Button>
-      </Box>
+        Save Todo
+      </Button>
+    </Box>
   )
 }
 
