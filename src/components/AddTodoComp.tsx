@@ -2,7 +2,7 @@ import { Box, Button, TextField } from "@mui/material";
 import SaveIcon from "@mui/icons-material/Save";
 import { useState } from "react";
 interface IAddTodoComp {
-     addTodo:(text:string) => Promise<void>;
+     addTodo:AddFn;
   }
   
   const AddTodoComp = ({addTodo}:IAddTodoComp) => {
@@ -36,6 +36,7 @@ interface IAddTodoComp {
             onClick={handleClick}
           variant="contained"
           color="success"
+          disabled={!text.trim()}
           sx={{ minWidth: { xs: "100%", sm: "15%" }, height: "55px", m: 1 }}
           endIcon={<SaveIcon />}
         >

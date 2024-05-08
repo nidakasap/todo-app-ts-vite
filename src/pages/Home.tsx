@@ -4,11 +4,6 @@ import TodoList from "../components/TodoList"
 import { useEffect, useState } from "react"
 import axios from "axios";
 
-interface ITodoType {
-    isDone: boolean;
-    id: string | number;
-    task?: string; 
-  }
 
 const url = 'https://634ac3fc5df952851418480f.mockapi.io/api/todos'
 
@@ -24,9 +19,7 @@ const url = 'https://634ac3fc5df952851418480f.mockapi.io/api/todos'
           console.log(error);
         }
       };
-      //const addTodo = async (text:string)
-      type AddFn = (text: string) => Promise<void>;
-
+  
       const addTodo: AddFn = async (text) => {
         try {
           const {data} = await axios.post<ITodoType>(url, { task: text, isDone: false });
@@ -38,6 +31,27 @@ const url = 'https://634ac3fc5df952851418480f.mockapi.io/api/todos'
         }
       };
 
+      const toggleTodo : ToggleFn = async(todo)=>{
+        try {
+            await axios.put(`${url}/${todo.id}`, { ...todo, isDone: !todo.isDone });
+        } catch (error) {
+            console.log(error)
+        }finally{
+            getTodos()
+        }
+      }
+
+      const deleteTodo: DeleteFn = async (id) => {
+        try {
+          await axios.delete(`${url}/${id}`);        
+        } catch (error) {
+          console.log(error);          
+        } finally{
+            getTodos()
+        }
+      };
+    
+
       useEffect(() => {
         getTodos();
       }, []);
@@ -48,7 +62,7 @@ const url = 'https://634ac3fc5df952851418480f.mockapi.io/api/todos'
             ToDo App with TypeScript
         </Typography>
         <AddTodoComp addTodo={addTodo} />
-        <TodoList />
+        <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo}/>
         </Container>
   )
 }
