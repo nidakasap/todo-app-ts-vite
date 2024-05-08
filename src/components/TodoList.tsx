@@ -62,7 +62,7 @@ const TodoList: FC<ITodoList> = ({ todos,toggleTodo,deleteTodo }) => {
         </Typography>
         {completedTodos.length ? (
           completedTodos.map((todo) => (
-            <TodoListItem key={todo.id} todo={todo} />
+            <TodoListItem key={todo.id} todo={todo} toggleTodo={toggleTodo} deleteTodo={deleteTodo}/>
           ))
         ) : (
           <Typography color="error" mt={3}>

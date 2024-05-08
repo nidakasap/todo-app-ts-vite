@@ -62,7 +62,7 @@ const url = 'https://634ac3fc5df952851418480f.mockapi.io/api/todos'
             ToDo App with TypeScript
         </Typography>
         <AddTodoComp addTodo={addTodo} />
-        <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo}/>
+        <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo}  />
         </Container>
   )
 }
