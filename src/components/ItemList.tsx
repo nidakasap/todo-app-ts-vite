@@ -1,7 +1,7 @@
 import { Grid, Typography } from "@mui/material";
 import TodoListItem from "./TodoListItem";
 import { FC } from "react";
-
+import "./styles.css"
 interface ITodoList extends ITodoListFn {
   todos: ITodoType[];
   label: string;
@@ -32,7 +32,7 @@ const ItemList: FC<ITodoList> = ({ todos, toggleTodo, deleteTodo, label }) => {
       <Grid
         item
         position={"relative"}
-        className="myscrool scrool-progress"
+        className={label === "In Progress Todo" ? "myscrool scrool-progress" : "myscrool scrool-completed"}
         sx={{
           border: `0.5px solid ${label === "In Progress Todo" ? "red" : "blue"}`,
           borderRadius: "0.5rem",

@@ -15,14 +15,14 @@ interface ITodoListItem extends ITodoListFn {
     return (
         <ListItem
         disableGutters
-        sx={{ padding: "1rem", cursor: "pointer" }}
+        sx={{ padding: "0.9rem", cursor: "pointer", "&:hover": { backgroundColor: "#f5f5f5" } }}
         secondaryAction={
           <IconButton
             onClick={() => deleteTodo(todo.id)}
-            sx={{ "&:hover": { color: "red" } }}
+            sx={{ "&:hover": { color:  "#292727" } }}
             aria-label="delete"
           >
-            <DeleteIcon />
+            <DeleteIcon  />
           </IconButton>
         }
       >

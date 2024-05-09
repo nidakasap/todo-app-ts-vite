@@ -1,0 +1,25 @@
+
+.myscrool::-webkit-scrollbar {
+    width: 8px; 
+    overflow-y:auto;  
+    height: 350px;  
+  }
+  
+  .scrool-progress::-webkit-scrollbar-thumb {
+    background-color: rgb(248, 216, 216); 
+    border-radius: 6px; 
+  }
+  .scrool-completed::-webkit-scrollbar-thumb {
+    background-color: rgb(200, 213, 255); 
+    border-radius: 6px; 
+  }
+
+   .myscrool::-webkit-scrollbar-thumb:hover {
+    background: rgb(166, 164, 164);
+  } 
+  
+  .myscrool::-webkit-scrollbar-track {
+    background: #ebe8e8; 
+    border-radius: 6px;  
+  }
+  
