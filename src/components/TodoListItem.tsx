@@ -1,8 +1,9 @@
-import React from "react";
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
+import Checkbox from '@mui/material/Checkbox';
+
 interface ITodoListItem extends ITodoListFn {
     todo: ITodoType;
   }
@@ -25,8 +26,12 @@ interface ITodoListItem extends ITodoListFn {
           </IconButton>
         }
       >
+      <Checkbox
+        checked={todo.isDone}
+        sx={{ cursor: "pointer" }}
+        onClick={() => toggleTodo(todo)}
+      />  
         <ListItemText
-          onClick={() => toggleTodo(todo)}
           sx={{ wordWrap: "break-word" }}
           primary={todo.task}
         />

@@ -15,7 +15,7 @@ interface IAddTodoComp {
 
   return (
     <Box
-      sx={{
+      sx={{          
         display: { xs: "block", sm: "flex" },
         justifyContent: { xs: "flex-start", sm: "center" },
         m: { xs: 1, sm: "auto" },
@@ -25,7 +25,7 @@ interface IAddTodoComp {
       <TextField
         id="outlined-basic"
         label="New Todo"
-        color="success"
+        color="secondary"
         sx={{ minWidth: { xs: "100%", sm: "50%" }, height: "50px", m: 1 }}
         variant="outlined"
         value={text}
@@ -34,7 +34,7 @@ interface IAddTodoComp {
       />
       <Button
         variant="contained"
-        color="success"
+        color="secondary"
         sx={{ minWidth: { xs: "100%", sm: "15%" }, height: "55px", m: 1 }}
         endIcon={<SaveIcon />}
         disabled={!text.trim()}

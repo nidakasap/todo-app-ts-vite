@@ -4,7 +4,6 @@ import TodoList from "../components/TodoList"
 import { useEffect, useState } from "react"
 import axios from "axios";
 
-
 const url: string = import.meta.env.VITE_BASE_URL
 
   const Home = () => {
@@ -57,9 +56,14 @@ const url: string = import.meta.env.VITE_BASE_URL
       }, []);
 
   return (
-    <Container>
-        <Typography align="center" color="error" variant="h5" component="h1">
-            ToDo App with TypeScript
+    <Container sx={{
+      marginTop:"2rem",
+      }}>
+        <Typography align="center" color="secondary" variant="h4" component="h1">
+            TODO LIST
+        </Typography>
+        <Typography align="center" color="secondary" style={{ fontSize: '.6rem' }} component="h6">
+            WITH TYPESCRIPT
         </Typography>
         <AddTodoComp addTodo={addTodo} />
         <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo}  />
