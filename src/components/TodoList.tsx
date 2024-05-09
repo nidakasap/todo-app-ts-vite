@@ -1,6 +1,8 @@
 import { FC } from "react";
 import {  Box } from "@mui/material";
 import ItemList from "./ItemList";
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 interface ITodoList extends ITodoListFn {
   todos: ITodoType[];
@@ -14,16 +16,18 @@ const TodoList: FC<ITodoList> = ({ todos, toggleTodo, deleteTodo }) => {
     { type: 'progress', todos: progressTodos, label: 'In Progress Todo' },
     { type: 'completed', todos: completedTodos, label: 'Completed Todo' }
   ];
-
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
   return (
     <Box
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        mt: 3,
-      }}
-    >
+    sx={{
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      flexDirection: isSmallScreen ? "column" : "row",
+      mt: 3,
+    }}
+  >
       {todoTypes.map((todoType) => (
         <ItemList
           key={todoType.type}

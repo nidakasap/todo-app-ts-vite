@@ -11,8 +11,6 @@ const ItemList: FC<ITodoList> = ({ todos, toggleTodo, deleteTodo, label }) => {
   return (
     <Grid
       container
-      xs={12}
-      md={6}
       sx={{
         display: "flex",
         flexDirection: "column",
